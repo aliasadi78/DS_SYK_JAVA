@@ -19,15 +19,30 @@ public class Main {
                 c = new String[rule[i][1].length()];
                 for (int j = 0; j < rule[i][1].length(); j++) {
                     c = (rule[i][1].split(""));
+                    for (int k = 0; k < c.length; k++){
+                        if ((int) (c[k]).charAt(0) > 64 && (int) (c[k]).charAt(0) < 91){
+                            if (c.length < 3){
+                                System.out.println((int) (c[k]).charAt(0));
+                            }
+                        }
+                        else if ((int) (c[k]).charAt(0) > 96 && (int) (c[k]).charAt(0) < 123){
+                            if (c.length < 2){
+                                System.out.println((int) (c[k]).charAt(0));
+                            }
+                        }
+                    }
                 }
             }
         }
 
-        for (int i = 0; i < size; i++){
-            System.out.print(c[i]);
-            System.out.print(c[i]);
-            System.out.println();
-        }
+//        for (int i = 0 ; i < c.length; i++){
+//            if ((rule[i][1].split("")).toString().charAt(0) > )
+//        }
+//        for (int i = 0; i < size; i++){
+//            System.out.println(c[i]);
+//            System.out.println((int) (c[i]).charAt(0));
+//            System.out.println();
+//        }
 // for (int i = 0; i < size; i++){
 //            System.out.print(rule[i][0]);
 //            System.out.print(rule[i][1]);
