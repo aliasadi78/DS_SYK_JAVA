@@ -19,24 +19,32 @@ public class Main {
     }
     public static Boolean testgrammer(String[][] rule) {
         String[] c;
+        Boolean T = true;
         for (int i = 0; i < rule.length; i++) {
             c = new String[rule[i][1].length()];
-            for (int j = 0; j < rule[i][1].length(); j++) {
+            for (int j = 0; j < rule.length; j++) {
                 c = (rule[j][1].split(""));
                 for (int k = 0; k < c.length; k++) {
+
                     if ((int) (c[k]).charAt(0) > 64 && (int) (c[k]).charAt(0) < 91) {
+                        if (T == false){
+                            return false;
+                        }
                         if (c.length < 3) {
-                            return true;
+                            T = true;
                         }
                         else {
-                            return false;
+                            T = false;
                         }
                     } else if ((int) (c[k]).charAt(0) > 96 && (int) (c[k]).charAt(0) < 123) {
+                        if (T == false){
+                            return false;
+                        }
                         if (c.length < 2) {
-                            return true;
+                            T = true;
                         }
                         else {
-                            return false;
+                            T = false;
                         }
                     }
                     else {
@@ -45,6 +53,6 @@ public class Main {
                 }
             }
         }
-        return false;
+        return T;
     }
 }
