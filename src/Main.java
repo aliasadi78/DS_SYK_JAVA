@@ -384,3 +384,167 @@ public class Main {
 //    }
 //
 //}
+//import java.util.Scanner;
+//
+//public class Main {
+//    public static final int MAX = 100;
+//    public static String[][] gram = new String[MAX][MAX];
+//    public static String[] dpr = new String[MAX];
+//    public static String[][] matrix = new String[MAX][MAX];
+//    public static String[] R = new String[2];
+//    public static int p = 0;
+//    public static int np;
+//
+//    public static void main(String[] args) {
+//        for (int y = 0; y < MAX; y++){
+//            for (int x = 0; x < MAX; x++){
+//                gram[y][x] = "";
+//            }
+//
+//        }
+//        for (int y = 0; y < MAX; y++){
+//            dpr[y] = "";
+//        }
+//        int i;
+//        int j;
+//        int l;
+//        int k;
+//        String str;
+//        String r;
+//        String pr;
+//        String start;
+//        final int MAX = 100;
+//        Scanner input = new Scanner(System.in);
+//        start = "S";
+//        np = Integer.parseInt(input.nextLine());
+//        for (i = 0; i < np; i++)
+//        {
+//            for (int b = 0; i < np; i++){
+//                String rr = input.nextLine();
+//                R = rr.split(" -> ");
+//                gram[i][0] = R[0];
+//                gram[i][1] = R[1];
+//            }
+//            for (j = 0; j < p; j++)
+//            {
+//                gram[i][j + 1] = dpr[j];
+//            }
+//        }
+//        for (int y = 0; y < MAX; y++){
+//            for (int x = 0; x < MAX; x++){
+//                matrix[y][x] = "";
+//            }
+//
+//        }
+//        String st;
+//        str = input.nextLine();
+//        for (i = 0; i < str.length(); i++)
+//        {
+//            r = "";
+//            st = "";
+//            st += str.charAt(i);
+//            for (j = 0; j < np; j++)
+//            {
+//                k = 1;
+//                while (!gram[j][k].equals(""))
+//                {
+//                    if (st.equals(gram[j][k]))
+//                    {
+//                        r = concat(r, gram[j][0]);
+//                    }
+//                    k++;
+//                }
+//            }
+//            matrix[i][i] = r;
+//        }
+//        for (k = 1; k < str.length(); k++)
+//        {
+//            for (j = k; j < str.length(); j++)
+//            {
+//                r = "";
+//                for (l = j - k; l< j;l++)
+//                {
+//                    pr = gen_comb(matrix[j - k][l], matrix[l + 1][j]);
+//                    r = concat(r, pr);
+//                }
+//                if (r.length()>1){
+//                    String rr = r.substring(0,2);
+//                    matrix[j - k][j] = rr;
+//                }
+//                else{
+//                    matrix[j - k][j] = r;
+//                }
+//            }
+//        }
+//        for (i=0; i< start.length();i++)
+//        {
+//            if (matrix[0][str.length() - 1].indexOf(start.charAt(i)) <= matrix[0][str.length() - 1].length())
+//            {
+//                System.out.println("YES");
+//            }
+//            else {
+//                System.out.println("NO");
+//            }
+//        }
+//        for (i = 0; i < str.length(); i++)
+//        {
+//            k = 0;
+//            l = str.length() - i - 1;
+//            for (j = 1; j < str.length(); j++)
+//            {
+//                System.out.print("[");
+//                System.out.print(matrix[k++][j]);
+//                System.out.print("]");
+//                System.out.print(" ");
+//            }
+//            System.out.print("\n");
+//        }
+//    }
+//
+//    private static String gen_comb(String a, String b)
+//    {
+//        int i;
+//        int j;
+//        String pri = a;
+//        String re = "";
+//        for (i = 0; i < a.length(); i++)
+//        {
+//            for (j = 0; j < b.length(); j++)
+//            {
+//                pri = "";
+//                pri = pri + a.charAt(i) + b.charAt(j);
+//                re = re + search_prod(pri);
+//            }
+//        }
+//        return re;
+//    }
+//    private static String search_prod(String p)
+//    {
+//        int j;
+//        int k;
+//        String r = "";
+//        for (j = 0; j < np; j++)
+//        {
+//            k = 1;
+//            while (!gram[j][k].equals(""))
+//            {
+//                if ((gram[j][k]).equals(p))
+//                {
+//                    r = concat(r, gram[j][0]);
+//                }
+//                k++;
+//            }
+//        }
+//        return r;
+//    }
+//    private static String concat(String a, String b) //concatenates unique non-terminals
+//    {
+//        int i;
+//        String r = a;
+//        for (i = 0; i < b.length(); i++)
+//        {
+//            r += b.charAt(i);
+//        }
+//        return (r);
+//    }
+//}
